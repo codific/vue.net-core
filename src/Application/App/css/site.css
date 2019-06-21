@@ -1,0 +1,95 @@
+﻿html, body, #app {
+    background: #1f2f48;
+    height: 100%;
+}
+
+.bg-vue {
+    background: #44b684 !important;
+}
+
+.btn-main {
+    background: #44b684 !important;
+    color: #fff !important;
+    border-radius: 0px !important;
+}
+
+::-moz-selection {
+    background: #44b684 !important;
+    color: #fff !important;
+}
+
+::selection {
+    background: #44b684 !important;
+    color: #fff !important;
+}
+
+#logreg-forms {
+    width: 412px;
+    margin: 10vh auto;
+    background-color: #334a5e;
+    color: #fff;
+}
+
+    #logreg-forms form {
+        width: 100%;
+        max-width: 410px;
+        padding: 15px;
+        margin: auto;
+    }
+
+    #logreg-forms .form-control {
+        position: relative;
+        box-sizing: border-box;
+        height: auto;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 0px;
+        border: none;
+    }
+
+    #logreg-forms a {
+        display: block;
+        padding-top: 10px;
+        color: #44b684;
+    }
+
+#logreg-form .lines {
+    width: 200px;
+    border: 1px solid red;
+}
+
+
+#logreg-forms button[type="submit"] {
+    margin-top: 10px;
+}
+
+@media screen and (max-width:500px) {
+    #logreg-forms {
+        width: 300px;
+    }
+}
+
+.table {
+    background: #44b684;
+    font-weight: bold;
+    border: none;
+}
+
+    .table td, .table th {
+        padding: .75rem;
+        vertical-align: top;
+        border: 1px solid #1f2f48;
+    }
+
+    .table thead th {
+        vertical-align: bottom;
+        text-align: center;
+        border: 1px solid #1f2f48;
+        background: #334a5e;
+        color: #fff;
+        border-bottom: 2px solid #1f2f48;
+    }
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0,0,0,.1);
+}

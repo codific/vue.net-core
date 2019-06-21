@@ -1,0 +1,25 @@
+﻿[{
+    "day": 1,
+    "title": "Setup Environment, Back-End Scaffolding & Data Layer",
+    "frontEnd": 25
+},
+{
+    "day": 2,
+    "title": "Business & Application Layer",
+    "frontEnd": 0
+},
+{
+	"day": 3,
+	"title": "Front-End Implementation & Setup Back-End Communication",
+	"frontEnd": 80
+},                    
+{
+    "day": 4,
+    "title": "Authentication & Authorization",
+    "frontEnd": 50
+},
+{
+    "day": 5,
+    "title": "Unit & Integration Tests",
+    "frontEnd": 0
+}]
