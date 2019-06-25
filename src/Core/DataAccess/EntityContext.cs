@@ -1,4 +1,5 @@
-﻿using Entities.Identity;
+﻿using Entities.Game;
+using Entities.Identity;
 using GSK.DAL.Context;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,10 @@ namespace Core.DataAccess
     {
         public EntityContext(DbContextOptions<EntityContext> options) : base(options)
         { }
+
+        public DbSet<Game> Games { get; set; }
+
+        public DbSet<Move> Moves { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -8,6 +8,7 @@ namespace Services
         {
             services.AddScoped<IIdentityService, IdentityService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IGameService, GameService>();
 
             return services;
         }
