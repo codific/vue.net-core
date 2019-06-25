@@ -221,7 +221,7 @@ namespace Services
                 return (WinningCombination)winningCombinationInt;
             }
 
-            return 0;
+            return null;
         }
 
         public static int[] GetGameResult(string[] gameboard)
