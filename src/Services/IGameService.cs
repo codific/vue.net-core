@@ -12,6 +12,6 @@ namespace Services
 
         Task<GameDto> GetCurrentGameAsync();
 
-        Task<GameDto> MakeMoveAsync(MoveDto move);
+        Task<GameDto> MakeMoveAsync(MoveDto move, Guid gameId);
     }
 }

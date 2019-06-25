@@ -11,6 +11,10 @@ namespace Entities.Game
 
         public string PlayerSign { get; set; }
 
+        public bool? IsPlayerWin { get; set; }
+
+        public WinningCombination? WinningCombination { get; set; }
+
         public virtual ICollection<Move> Moves { get; set; }
     }
 }

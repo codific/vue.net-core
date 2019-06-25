@@ -15,6 +15,7 @@ namespace Core.MappingProfiles
                 .ForMember(d => d.Id, opt => opt.MapFrom(s => s.Id))
                 .ForMember(d => d.IsFinished, opt => opt.MapFrom(s => s.IsFinished))
                 .ForMember(d => d.PlayerSign, opt => opt.MapFrom(s => s.PlayerSign))
+                .ForMember(d => d.IsPlayerWin, opt => opt.MapFrom(s => s.IsPlayerWin))
                 .ReverseMap();
 
             CreateMap<Move, MoveDto>()

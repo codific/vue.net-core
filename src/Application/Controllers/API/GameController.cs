@@ -36,5 +36,19 @@ namespace Application.Controllers.API
 
             return Ok(game);
         }
+
+        [HttpPost]
+        [Route("make-move/{gameId}")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(GameDto), StatusCodes.Status200OK)]
+        public async Task<IActionResult> MakeMove([FromBody]MoveDto move, Guid gameId)
+        {
+            var game = await this.gameService.MakeMoveAsync(move, gameId);
+            if (game == null)
+            {
+                return BadRequest();
+            }
+            return Ok(game);
+        }
     }
 }

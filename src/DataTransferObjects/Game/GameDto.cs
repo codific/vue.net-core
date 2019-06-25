@@ -10,6 +10,10 @@ namespace DataTransferObjects.Game
 
         public bool IsFinished { get; set; }
 
+        public bool? IsPlayerWin { get; set; }
+
+        public int? WinningCombination { get; set; }
+
         public string PlayerSign { get; set; }
     }
 }
