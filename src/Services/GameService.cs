@@ -84,6 +84,11 @@ namespace Services
                 mappedMove.Order = nextOrder;
                 mappedMove.IsPlayer = true;
 
+                if (moves.Select(x => (int)x.Position).ToList().Contains(move.Position))
+                {
+                    return null;
+                }
+
                 currentGame = await standardRepository.GetAsync<Game>(gameId);
                 if (!currentGame.IsFinished)
                 {
@@ -96,10 +101,6 @@ namespace Services
                     return null;
                 }
 
-                if (moves.Select(x => (int)x.Position).ToList().Contains(move.Position))
-                {
-                    return null;
-                }
 
                 currentGame = await UpdateGameStatusAsync(gameId);
                 if (!currentGame.IsFinished)
