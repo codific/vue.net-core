@@ -198,6 +198,14 @@ namespace Services
                     standardRepository.Update<Game>(currentGame);
                     await this.uow.SaveChangesAsync();
                 }
+                else if (moves.Count() >= 9)
+                {
+                    currentGame.IsFinished = true;
+                    currentGame.IsPlayerWin = false;
+
+                    standardRepository.Update<Game>(currentGame);
+                    await this.uow.SaveChangesAsync();
+                }
 
                 return currentGame;
             }
