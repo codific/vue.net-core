@@ -57,6 +57,7 @@ namespace Application
             services.AddSingleton<IMapper>(new Mapper(new MapperConfiguration(config =>
             {
                 config.AddProfile<IdentityMappingProfile>();
+                config.AddProfile<GameMappingProfile>();
             })));
 
             services.ConfigureServices();

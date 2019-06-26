@@ -15,7 +15,9 @@ namespace Application.Controllers
         [Route("/error")]
         public IActionResult Error()
         {
+            throw new System.Exception("big mistake");
             return View();
         }
+
     }
 }
