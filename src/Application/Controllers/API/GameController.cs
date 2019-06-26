@@ -50,5 +50,19 @@ namespace Application.Controllers.API
             }
             return Ok(game);
         }
+
+        [HttpGet]
+        [Route("get-all-moves-per-game/{gameId}")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(IEnumerable<MoveDto>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetAllMovesPerGame(Guid gameId)
+        {
+            var moves = await this.gameService.GetAllMovesPerGameAsync(gameId);
+            if (moves == null)
+            {
+                return BadRequest();
+            }
+            return Ok(moves);
+        }
     }
 }

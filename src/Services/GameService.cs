@@ -201,7 +201,6 @@ namespace Services
                 else if (moves.Count() >= 9)
                 {
                     currentGame.IsFinished = true;
-                    currentGame.IsPlayerWin = false;
 
                     standardRepository.Update<Game>(currentGame);
                     await this.uow.SaveChangesAsync();
@@ -256,6 +255,22 @@ namespace Services
             }
 
             return null;
+        }
+
+        public async Task<IEnumerable<MoveDto>> GetAllMovesPerGameAsync(Guid gameId)
+        {
+            try
+            {
+                var standardRepository = this.uow.GetStandardRepository();
+                var moves = await standardRepository.QueryAsync<Move>(x => x.GameId == gameId);
+                var mappedMoves = this.mapper.Map<IEnumerable<MoveDto>>(moves);
+
+                return mappedMoves;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
     }
 }

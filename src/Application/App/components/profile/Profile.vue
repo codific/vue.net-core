@@ -44,7 +44,8 @@ export default {
                     })
                     .catch(e => {
 
-                    })
+                    });
+                console.log(self.userData);
             }
         },
         mounted: function () {

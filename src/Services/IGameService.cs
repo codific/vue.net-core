@@ -13,5 +13,7 @@ namespace Services
         Task<GameDto> GetCurrentGameAsync();
 
         Task<GameDto> MakeMoveAsync(MoveDto move, Guid gameId);
+
+        Task<IEnumerable<MoveDto>> GetAllMovesPerGameAsync(Guid gameId);
     }
 }

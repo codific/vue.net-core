@@ -45,6 +45,7 @@
             return {
             routes: [
                 { display: "Home", path: "/" },
+                { display: "Game", path: "/game" },
                 { display: "Contact", path: "/contact" },
             ],
             anonymousAccountRouts: [

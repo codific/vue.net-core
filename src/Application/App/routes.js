@@ -1,4 +1,5 @@
 ﻿import Home from './components/Home'
+import Game from './components/game/Game'
 import Contact from './components/contact/Contact'
 import Login from './components/authentication/Login'
 import Register from './components/authentication/Register'
@@ -41,6 +42,7 @@ const adminGuard = async (to, from, next) => {
 
 export const routes = [
     { name: 'home', path: '/', component: Home },
+    { name: 'game', path: '/game', component: Game },
     { name: 'contact', path: '/contact', component: Contact },
     { name: 'login', path: '/login', component: Login, beforeEnter: authGuard },
     { name: 'register', path: '/register', component: Register, beforeEnter: authGuard },

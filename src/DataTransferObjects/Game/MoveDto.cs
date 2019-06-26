@@ -16,5 +16,21 @@ namespace DataTransferObjects.Game
 
         [Required]
         public bool IsPlayer { get; set; }
+
+        public int Row
+        {
+            get
+            {
+                return (int)Math.Ceiling((double)Position / 3);
+            }
+        }
+
+        public int Column
+        {
+            get
+            {
+                return (Position - 1) % 3 + 1;
+            }
+        }
     }
 }

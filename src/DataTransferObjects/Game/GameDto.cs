@@ -15,5 +15,13 @@ namespace DataTransferObjects.Game
         public int? WinningCombination { get; set; }
 
         public string PlayerSign { get; set; }
+
+        public string MachineSign
+        {
+            get
+            {
+                return PlayerSign.Equals("X") ? "O" : "X";
+            }
+        }
     }
 }

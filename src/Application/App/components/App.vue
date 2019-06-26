@@ -21,9 +21,15 @@
       },
 
       data () {
-        return {}
+          return {
+              message: "hello vue"   
+          }
+      },
+      mounted: function () {
+        console.log(this.message);
       }
-    }</script>
+    }
+</script>
 <style>
     #page-content {
         flex: 1 0 auto;
