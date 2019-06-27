@@ -49,7 +49,7 @@ namespace Application
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
                 options.Password.RequireLowercase = false;
-
+                
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
                 options.Lockout.MaxFailedAccessAttempts = 15;
             });
@@ -84,6 +84,19 @@ namespace Application
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
                     };
                 });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("SomePolicy", policy =>
+                {
+                    for (int i = 0; i < 5; i++)
+                    {
+                        policy.RequireUserName($"user{i}@codific.com");
+                    }
+                    policy.RequireAuthenticatedUser();
+                    policy.RequireClaim("some-permission");
+                });
+            });
 
             services.AddMvc();
 

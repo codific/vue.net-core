@@ -35,14 +35,24 @@ const adminGuard = async (to, from, next) => {
         if (store.getters.loggedIn && store.getters.hasAdminRights) {
             next();
         } else {
-            next('/');
+            next('/404');
+        }
+    });
+};
+
+const userGuard = async (to, from, next) => {
+    store.dispatch("validateAuthentication").then(response => {
+        if (store.getters.loggedIn && store.getters.isUser) {
+            next();
+        } else {
+            next('/404');
         }
     });
 };
 
 export const routes = [
     { name: 'home', path: '/', component: Home },
-    { name: 'game', path: '/game', component: Game },
+    { name: 'game', path: '/game', component: Game, beforeEnter: userGuard },
     { name: 'contact', path: '/contact', component: Contact },
     { name: 'login', path: '/login', component: Login, beforeEnter: authGuard },
     { name: 'register', path: '/register', component: Register, beforeEnter: authGuard },

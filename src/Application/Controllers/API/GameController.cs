@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DataTransferObjects.Game;
+using Entities.Permissions;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Services;
@@ -12,6 +15,7 @@ using Services;
 namespace Application.Controllers.API
 {
     [Route("api/game")]
+    [Authorize(Roles = Roles.User)]
     public class GameController : Controller
     {
         private readonly IGameService gameService;

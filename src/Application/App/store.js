@@ -29,6 +29,9 @@ const getters = {
     },
     hasAdminRights(state) {
         return state.userRoles != null ? state.userRoles.includes('Admin') : false
+    },
+    isUser(state) {
+        return state.userRoles != null ? state.userRoles.includes('User') : false
     }
 }
 

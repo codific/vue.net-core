@@ -18,8 +18,13 @@
                             <span>{{route.display}}</span>
                         </router-link>
                     </li>
+                    <li v-if="isUserAuthenticated && isUser" class="nav-item" v-for="(route, index) in userRoutes" :key="index + 200">
+                        <router-link class="nav-link text-white" :to="route.path" exact-active-class="active">
+                            <span>{{route.display}}</span>
+                        </router-link>
+                    </li>
                     <li v-if="isUserAuthenticated && hasAdminRights"><span class="point-separator"> • </span></li>
-                    <li v-if="!isUserAuthenticated" class="nav-item" v-for="(route, index) in anonymousAccountRouts" :key="index + 100">
+                    <li v-if="!isUserAuthenticated" class="nav-item" v-for="(route, index) in anonymousAccountRouts" :key="index + 300">
                         <router-link class="nav-link text-white" :to="route.path" exact-active-class="active">
                             <span>{{route.display}}</span>
                         </router-link>
@@ -44,17 +49,19 @@
       data () {
             return {
             routes: [
-                { display: "Home", path: "/" },
-                { display: "Game", path: "/game" },
-                { display: "Contact", path: "/contact" },
-            ],
-            anonymousAccountRouts: [
-                { display: "Register", path: "/register" },
-                { display: "Login", path: "/login" },
-            ],
-            adminRoutes: [
-                { display: "Users", path: "/users" },
-            ]
+                    { display: "Home", path: "/" },
+                    { display: "Contact", path: "/contact" },
+                ],
+                anonymousAccountRouts: [
+                    { display: "Register", path: "/register" },
+                    { display: "Login", path: "/login" },
+                ],
+                adminRoutes: [
+                    { display: "Users", path: "/users" },
+                ],
+                userRoutes: [
+                    { display: "Game", path: "/game" },
+                ]
         }
         },
         computed: {
@@ -66,6 +73,9 @@
             },
             hasAdminRights() {
                 return this.$store.getters.hasAdminRights
+            },
+            isUser() {
+                return this.$store.getters.isUser
             }
         },
       methods: {
@@ -78,7 +88,6 @@
           },
         },
         mounted: function () {
-
         }
     }
     </script>
